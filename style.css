@@ -1,0 +1,221 @@
+:root {
+  --Gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+  --Pale-Blue: hsl(243, 100%, 93%);
+  --Grayish-Blue: hsl(229, 7%, 55%);
+  --Dark-Blue: hsl(228, 56%, 26%);
+  --Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--Very-Dark-Blue);
+  background-image: url(./images/bg-desktop.png);
+  background-position: 0px 320px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-family: "Raleway", sans-serif;
+}
+main {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 25px auto;
+  grid-template-areas:
+    "logo ."
+    "logo det";
+  gap: 0px 20px;
+}
+section {
+  background-color: var(--Dark-Blue);
+  padding: 30px;
+  border-radius: 10px;
+}
+.one {
+  grid-area: logo;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 300px;
+  border-top-right-radius: 88px;
+}
+.one .icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  gap: 10px;
+}
+.one .icons div {
+  background-color: var(--Very-Dark-Blue);
+  height: 40px;
+  border-radius: 10px;
+}
+.one .icons div img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
+.two {
+  width: 500px;
+  grid-area: det;
+}
+.details p:not(span) {
+  color: hsl(243deg 100% 93% / 70%);
+}
+.details p span {
+  font-weight: bold;
+  color: var(--Pale-Blue);
+}
+.progress {
+  background-color: var(--Very-Dark-Blue);
+  height: 15px;
+  position: relative;
+  border-radius: 10px;
+}
+.progress .size {
+  background-color: white;
+  position: absolute;
+  top: -115px;
+  right: 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 33px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.progress .size::after {
+  content: "";
+  position: absolute;
+  top: 35px;
+  right: 0;
+  border-color: transparent white transparent transparent;
+  border-style: solid;
+  border-width: 22px;
+}
+.progress .size span {
+  color: var(--Grayish-Blue);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.progress .line {
+  background-image: linear-gradient(
+    to right,
+    hsl(6, 100%, 80%),
+    hsl(335, 100%, 65%)
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border: 1px solid var(--Very-Dark-Blue);
+  border-radius: 10px;
+}
+.progress .line::after {
+  content: "";
+  background-color: white;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  transform: translateY(-50%);
+}
+.details .storage {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.details .storage span {
+  color: var(--Pale-Blue);
+  font-weight: 400;
+}
+footer {
+  font-size: 11px;
+  text-align: center;
+  position: relative;
+  top: 15px;
+  color: white;
+}
+footer a {
+  color: hsl(228, 45%, 44%);
+  color: hsl(335, 100%, 65%);
+}
+@media (max-width: 375px) {
+  body {
+    background-image: url(./images/bg-mobile.png);
+    background-position: 0px 0px;
+  }
+  main {
+    grid-template-columns: 300px;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "logo"
+      "det";
+    gap: 15px;
+  }
+  .one {
+    gap: 20px;
+  }
+  .two {
+    width: 100%;
+    height: 155px;
+  }
+  .progress .size {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 80%);
+    width: 150px;
+  }
+  .progress .size::after {
+    content: "";
+    border-color: transparent;
+  }
+  footer {
+    top: 80px;
+  }
+}
+@media (min-width: 376px) and (max-width: 835px) {
+  body {
+    background-image: url(./images/bg-desktop.png);
+  }
+  main {
+    grid-template-columns: 300px;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "logo"
+      "det";
+    gap: 15px;
+  }
+  .one {
+    gap: 20px;
+  }
+  .two {
+    width: 100%;
+    height: 155px;
+  }
+  .progress .size {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 80%);
+    width: 150px;
+  }
+  .progress .size::after {
+    content: "";
+    border-color: transparent;
+  }
+  footer {
+    top: 80px;
+  }
+}
